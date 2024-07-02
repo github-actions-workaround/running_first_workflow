@@ -1,0 +1,20 @@
+name: test-project
+on: push
+jobs:
+  my-first-job:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: git checkout
+        run: echo "getting the code out from repo and put it on the runner machine"
+        uses: actions/checkout@v4
+      - name: install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm test
+
+
+
