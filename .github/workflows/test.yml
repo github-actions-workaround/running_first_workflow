@@ -2,7 +2,7 @@ name: test-project
 on: push
 jobs:
   my-first-job:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: git checkout
         uses: actions/checkout@v3
@@ -14,6 +14,21 @@ jobs:
         run: npm ci
       - name: run tests
         run: npm test
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: install node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm run build
+      - name: deploy in the server
+        run: echo "deploying"
 
 
 
