@@ -5,10 +5,9 @@ jobs:
     runs-on: ubuntu-lastest
     steps:
       - name: git checkout
-        run: echo "getting the code out from repo and put it on the runner machine"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: install node js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: install dependencies
